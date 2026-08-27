@@ -161,6 +161,18 @@ const NOISE = [
 ];
 
 const QUESTION_RE = /^\((\d+)\)\s*(\d+)\.\s*(.*)$/;
+
+/**
+ * კითხვა ქულის მითითების გარეშე: „3. რომელ ფრაზაში ჩანს…“
+ * ზოგ ბუკლეტში ქულა ფრჩხილებში წერია, ზოგში — არა. მარტო ეს ნიმუში
+ * საიმედო არ არის (სტროფის ნომერიც ასე გამოიყურება), ამიტომ მას მხოლოდ
+ * იმ გვერდზე ვენდობით, სადაც პასუხების ვარიანტებიცაა — იხ. findQuestionStart.
+ */
+const PLAIN_QUESTION_RE = /^(\d{1,2})\.\s*(\S.*)$/;
+
+/** ნაგულისხმევი ქულა, როცა ფრჩხილებში არაფერი წერია */
+const DEFAULT_POINTS = 1;
+
 const OPTION_RE = /^([ა-დ])\)\s*(.*)$/;
 const PAGENUM_RE = /^\d{1,3}$/;
 const TASKNUM_RE = /^(\d{1,2})\.$/;
@@ -231,6 +243,11 @@ function translit(text) {
     else if (' -_'.includes(ch)) out += '-';
   }
   return out.replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
+}
+
+/** შედარებისთვის: მხოლოდ ასო-ციფრები, სასვენი ნიშნებისა და ინტერვალების გარეშე */
+function bare(text) {
+  return (text || '').toLowerCase().replace(/[^\u10A0-\u10FFa-z0-9]/g, '');
 }
 
 function nominative(name) {
@@ -386,8 +403,13 @@ function findGutter(lines, pageWidth) {
 
 /** სვეტების მიხედვით სტრიქონების თავიდან აწყობა: ჯერ მარცხენა, მერე მარჯვენა */
 function orderByColumns(lines, pageWidth) {
+  const single = () => {
+    lines.forEach(l => { l.col = 0; });
+    return { lines: lines, columns: 1 };
+  };
+
   const at = findGutter(lines, pageWidth);
-  if (at === null) return { lines: lines, columns: 1 };
+  if (at === null) return single();
 
   const left = [], right = [];
   for (const l of lines) for (const w of l.words) (w.x < at ? left : right).push(w);
@@ -396,8 +418,10 @@ function orderByColumns(lines, pageWidth) {
   // გვერდის კიდეში მიწერილი ერთი სიტყვაა და არა სვეტი
   const leftLines = buildLines(left);
   const rightLines = buildLines(right);
-  if (leftLines.length < 2 || rightLines.length < 2) return { lines: lines, columns: 1 };
+  if (leftLines.length < 2 || rightLines.length < 2) return single();
 
+  leftLines.forEach(l => { l.col = 0; });
+  rightLines.forEach(l => { l.col = 1; });
   return { lines: leftLines.concat(rightLines), columns: 2 };
 }
 
@@ -423,6 +447,9 @@ function parseHeader(lines) {
     bodyStart = i + 1;
     for (let j = i + 1; j < lines.length && j <= i + 2; j++) {
       if (intro.endsWith(':')) break;
+      // „…ლექსი „ლეგენდად დარჩეს!““ — ორწერტილი არ უწერია, მაგრამ
+      // ნაწარმოები უკვე დასახელებულია: შესავალი აქ მთავრდება.
+      if (WORK_RE.test(intro)) break;
       intro += ' ' + lines[j].text.trim();
       bodyStart = j + 1;
     }
@@ -504,15 +531,31 @@ function groupStanzas(pageLines) {
     return stanzas;
   }
 
-  const sizes = [];
-  for (const lines of pageLines) {
-    let run = 0;
-    lines.forEach((l, i) => {
-      if (i > 0 && l.blankBefore) { if (run) sizes.push(run); run = 0; }
-      run++;
-    });
-    if (run) sizes.push(run);
+  // „კიბისებური“ განლაგება: ლექსის ერთი სტრიქონი ორ (ან სამ) რიგადაა
+  // დაბეჭდილი — პირველი ნაწილი სვეტის კიდეზე, დანარჩენი შეწეული.
+  // ასეთ დროს შეწეული რიგები წინას უერთდება, თორემ სტროფი ორჯერ
+  // გრძელი გამოვა. ჩვეულებრივ ლექსში შეწევა თითქმის არ გვხვდება.
+  const indented = flat.filter(f => f.line.indented).length;
+  const staircase = flat.length >= 8 && indented >= flat.length * 0.25;
+
+  const units = [];
+  for (const f of flat) {
+    const prev = units.length ? units[units.length - 1] : null;
+    if (staircase && f.line.indented && prev && prev.pi === f.pi) {
+      prev.text += ' ' + f.line.text;
+    } else {
+      units.push({ pi: f.pi, text: f.line.text, blankBefore: !!f.line.blankBefore });
+    }
   }
+
+  const sizes = [];
+  let run = 0, pi = null;
+  units.forEach(u => {
+    if (run && (u.blankBefore || u.pi !== pi)) { sizes.push(run); run = 0; }
+    pi = u.pi;
+    run++;
+  });
+  if (run) sizes.push(run);
 
   let size = 4;
   if (sizes.length) {
@@ -525,9 +568,9 @@ function groupStanzas(pageLines) {
   }
 
   const stanzas = [];
-  for (let i = 0; i < flat.length; i += size) {
-    const chunk = flat.slice(i, i + size);
-    stanzas.push({ pi: chunk[0].pi, lines: chunk.map(c => c.line.text) });
+  for (let i = 0; i < units.length; i += size) {
+    const chunk = units.slice(i, i + size);
+    stanzas.push({ pi: chunk[0].pi, lines: chunk.map(c => c.text) });
   }
   return stanzas;
 }
@@ -556,9 +599,15 @@ function markLayout(pageLines) {
 
   for (const lines of pageLines) {
     if (!lines.length) continue;
-    const left = Math.min.apply(null, lines.map(l => l.x));
+    // შეწევა სვეტის მარცხენა კიდეს ეთვლება, გვერდისას არა — თორემ
+    // ორსვეტიან ტექსტში მთელი მარჯვენა სვეტი „შეწეულად“ ჩაითვლება
+    const lefts = {};
+    lines.forEach(l => {
+      const c = l.col || 0;
+      if (lefts[c] === undefined || l.x < lefts[c]) lefts[c] = l.x;
+    });
     lines.forEach((l, i) => {
-      l.indented = l.x > left + 3;
+      l.indented = l.x > lefts[l.col || 0] + 3;
       l.blankBefore = i > 0 && docGap > 0 && (l.y - lines[i - 1].y) > docGap * 1.6;
     });
   }
@@ -589,17 +638,52 @@ function buildSections(pageLines, verse) {
 
 /* ---------- კითხვები ---------- */
 
-/** ტექსტის გვერდები vs. კითხვების გვერდები — პირველ „(ქულა) ნომერი.“ მარკერამდე */
+/** კითხვა ორივე ფორმატში: „(1) 3. …“ და „3. …“ */
+function matchQuestion(text) {
+  const m = QUESTION_RE.exec(text);
+  if (m) return { number: +m[2], points: +m[1], text: m[3].trim() };
+  const p = PLAIN_QUESTION_RE.exec(text);
+  if (p) return { number: +p[1], points: DEFAULT_POINTS, text: p[2].trim() };
+  return null;
+}
+
+/** რამდენი განსხვავებული ვარიანტის ასო („ა)“, „ბ)“ …) არის გვერდზე */
+function countOptionKeys(lines) {
+  const keys = [];
+  for (const l of lines) {
+    const m = OPTION_RE.exec(l.text.trim());
+    if (m && keys.indexOf(m[1]) === -1) keys.push(m[1]);
+  }
+  return keys.length;
+}
+
+/**
+ * სად იწყება კითხვა ამ გვერდზე (-1, თუ ეს ტექსტის გვერდია).
+ * „(ქულა) ნომერი.“ თავისთავად საკმარისია. ქულის გარეშე დაწერილ ნომერს
+ * მაშინ ვცნობთ, თუ იმავე გვერდზე სამი ან მეტი ვარიანტია — თორემ
+ * ლექსის დანომრილი სტროფი („1.“, „2.“ …) კითხვად ჩაითვლებოდა.
+ */
+function findQuestionStart(lines) {
+  for (let i = 0; i < lines.length; i++) {
+    if (QUESTION_RE.test(lines[i].text.trim())) return i;
+  }
+  if (countOptionKeys(lines) < 3) return -1;
+  for (let i = 0; i < lines.length; i++) {
+    const s = lines[i].text.trim();
+    if (OPTION_RE.test(s)) return -1;
+    if (PLAIN_QUESTION_RE.test(s)) return i;
+  }
+  return -1;
+}
+
+/** ტექსტის გვერდები vs. კითხვების გვერდები — პირველ კითხვამდე */
 function splitHeadAndQuestions(pages) {
   const textPages = [], questionLines = [];
   let hit = false;
   for (const page of pages) {
     const lines = page.kept;
     if (hit) { questionLines.push.apply(questionLines, lines); continue; }
-    let found = -1;
-    for (let i = 0; i < lines.length; i++) {
-      if (QUESTION_RE.test(lines[i].text.trim())) { found = i; break; }
-    }
+    const found = findQuestionStart(lines);
     if (found === -1) {
       if (lines.length) textPages.push({ page: page, lines: lines });
     } else {
@@ -621,12 +705,12 @@ function parseQuestions(lines) {
     const s = line.text.trim();
     if (!s) { target = null; continue; }
 
-    const mq = QUESTION_RE.exec(s);
+    const mq = matchQuestion(s);
     if (mq) {
       flush();
       current = {
-        id: +mq[2], number: +mq[2], points: +mq[1],
-        text: mq[3].trim(), options: [], correctAnswer: '',
+        id: mq.number, number: mq.number, points: mq.points,
+        text: mq.text, options: [], correctAnswer: '',
       };
       target = 'text';
       continue;
@@ -689,9 +773,14 @@ function buildTest(raw, filename) {
   if (!author && fn.extras.length > 1) author = fn.extras[0];
   if (!work && fn.extras.length) work = fn.extras[fn.extras.length - 1];
 
-  // id-ში ეპიზოდიც შედის — ერთი ნაწარმოების რამდენიმე ტესტი რომ არ დაეჯახოს
-  const known = [author, work].filter(Boolean);
-  const episode = fn.extras.filter(e => known.indexOf(e) === -1)[0] || '';
+  // id-ში ეპიზოდიც შედის — ერთი ნაწარმოების რამდენიმე ტესტი რომ არ დაეჯახოს.
+  // შედარება სასვენი ნიშნების გარეშეა: ფაილში „ლებანიძე“ წერია, ტექსტში —
+  // „მურმან ლებანიძე“; ესენი ერთი და იგივეა და ეპიზოდად არ ჩაითვლება.
+  const known = [author, work].filter(Boolean).map(bare);
+  const episode = fn.extras.filter(e => {
+    const b = bare(e);
+    return !(b.length >= 4 && known.some(k => k.indexOf(b) >= 0 || b.indexOf(k) >= 0));
+  })[0] || '';
   const idParts = [work || author || filename, episode].filter(Boolean);
   const id = translit(idParts.join(' ')) || 'test';
 
