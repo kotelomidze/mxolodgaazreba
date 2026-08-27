@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "id": "vepkhistqaosani-khataelebtan-omi",
+      "file": "test-vepkhistqaosani-khataelebtan-omi.json",
+      "title": "ტექსტი I",
+      "author": "შოთა რუსთაველი",
+      "work": "ვეფხისტყაოსანი",
+      "order": 1611,
+      "source": "„ვეფხისტყაოსანში“ ტარიელი ავთანდილს ხატაელებთან ბრძოლის ამბავს უამბობს",
+      "questionCount": 15,
+      "keyComplete": false
+    },
+    {
+      "id": "data-tutashkhia",
+      "file": "test-data-tutashkhia.json",
+      "title": "ტექსტი II",
+      "author": "ჭაბუა ამირეჯიბი",
+      "work": "დათა თუთაშხია",
+      "order": 1612,
+      "source": "ნაწყვეტი ჭაბუა ამირეჯიბის რომანიდან „დათა თუთაშხია“",
+      "questionCount": 15,
+      "keyComplete": false
+    }
+  ]
+}
