@@ -174,10 +174,39 @@ const PLAIN_QUESTION_RE = /^(\d{1,2})\.\s*(\S.*)$/;
 const DEFAULT_POINTS = 1;
 
 const OPTION_RE = /^([ა-დ])\)\s*(.*)$/;
-const PAGENUM_RE = /^\d{1,3}$/;
+const PAGENUM_RE = /^\d{1,8}$/;
 const TASKNUM_RE = /^(\d{1,2})\.$/;
 const STANZA_RE = /^(\d{1,2})\.\s*(?=\S)/;
 const WORK_RE = /„([^“]+)“/;
+
+/**
+ * სრული საგამოცდო რვეულის ბლოკები. ზოგი PDF მთელი ბუკლეტის ნაწილია:
+ * წინა დავალების თხზულების ინსტრუქცია → „დავალება # 2“ → წასაკითხი ტექსტი →
+ * „ა) წაკითხულის გააზრება“ → კითხვები → „ბ) წერითი დავალება“ → შავი სამუშაო.
+ * თხზულების ბლოკები მთლიანად ზედმეტია — ისინი ტექსტშიც ხვდებოდა და
+ * ბოლო კითხვის პასუხებსაც ანგრევდა.
+ */
+const ESSAY_RE = /წერითი\s+დავალებ/;
+const DRAFT_RE = /შავი\s+სამუშაოსათვის/;
+const TASK_RE = /^დავალება\s*[#№]?\s*(\d{1,2})\.?$/;
+const COMPREHENSION_RE = /წაკითხულის\s+გააზრება/;
+const READ_RE = /ყურადღებით\s+წაიკითხეთ/;
+
+/**
+ * ძველი ქართული შრიფტები (AcadNusx, LitNusx და მისთანანი) ლათინურ კოდებზეა
+ * აწყობილი: ეკრანზე ქართული ჩანს, ტექსტის სახით კი — „wakiTxulis gaazreba“.
+ * ასეთი PDF-იდან კოპირებული ტექსტი ლათინურია, ამიტომ თვითონ ვშიფრავთ.
+ */
+const LEGACY_FONT_MAP = {
+  a: 'ა', b: 'ბ', g: 'გ', d: 'დ', e: 'ე', v: 'ვ', z: 'ზ', T: 'თ', i: 'ი',
+  k: 'კ', l: 'ლ', m: 'მ', n: 'ნ', o: 'ო', p: 'პ', J: 'ჟ', r: 'რ', s: 'ს',
+  t: 'ტ', u: 'უ', f: 'ფ', q: 'ქ', R: 'ღ', y: 'ყ', S: 'შ', C: 'ჩ', c: 'ც',
+  Z: 'ძ', w: 'წ', W: 'ჭ', x: 'ხ', j: 'ჯ', h: 'ჰ',
+  '`': '„', '~': '“', '_': '—',
+};
+
+/** I, V, X არ ითარგმნება — ისინი რომაული ციფრებია („III სტროფში“, „X“) */
+const LEGACY_CHAR_RE = /[a-zA-Z`~_]/g;
 
 /** რამდენი კითხვა უნდა იყოს ამ ფორმატში (3-დან 17-ის ჩათვლით) */
 const EXPECTED_QUESTIONS = 15;
@@ -270,6 +299,38 @@ function median(nums) {
   if (!nums.length) return 0;
   const s = nums.slice().sort((a, b) => a - b);
   return s[Math.floor(s.length / 2)];
+}
+
+/** ლათინურად ჩაწერილი ქართული? ვითვლით ასოებს, არა შრიფტის სახელს. */
+function looksLegacy(pages) {
+  let ka = 0, lat = 0;
+  for (const p of pages) {
+    for (const w of p.words) {
+      for (const ch of w.str) {
+        if (ch >= '\u10A0' && ch <= '\u10FF') ka++;
+        else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) lat++;
+      }
+    }
+  }
+  return lat > 100 && lat > ka * 4;
+}
+
+function decodeLegacy(pages) {
+  for (const p of pages) {
+    for (const w of p.words) {
+      w.str = w.str.replace(LEGACY_CHAR_RE, ch => LEGACY_FONT_MAP[ch] || ch);
+    }
+  }
+}
+
+/**
+ * ორი სტრიქონის შეერთება. სტრიქონის ბოლოს დეფისი სიტყვის გადატანას ნიშნავს
+ * („იქაურო-“ + „ბას“ → „იქაურობას“). გამონაკლისია ინტერვალის შემდეგ მდგარი
+ * ტირე („საერთო ჯამთან -“) — ის სასვენი ნიშანია და სიტყვებს არ აწებებს.
+ */
+function appendText(prev, next) {
+  if (/\S-$/.test(prev)) return prev.slice(0, -1) + next;
+  return prev + ' ' + next;
 }
 
 /* ---------- PDF -> სიტყვები ---------- */
@@ -580,8 +641,9 @@ function joinParagraphs(lines) {
   for (const l of lines) {
     const text = l.text.trim();
     if (!text) continue;
-    if (paras.length && !l.indented) paras[paras.length - 1] += ' ' + text;
-    else paras.push(text);
+    if (paras.length && !l.indented) {
+      paras[paras.length - 1] = appendText(paras[paras.length - 1], text);
+    } else paras.push(text);
   }
   return paras;
 }
@@ -628,7 +690,7 @@ function buildSections(pageLines, verse) {
     // გვერდზე გადატანილი სიტყვა: „იანეს ღო-“ / „ნეც შემოიმატა“
     for (let i = 0; i + 1 < sections.length; i++) {
       const a = sections[i].paragraphs, b = sections[i + 1].paragraphs;
-      if (a && b && a.length && b.length && a[a.length - 1].endsWith('-')) {
+      if (a && b && a.length && b.length && /\S-$/.test(a[a.length - 1])) {
         a[a.length - 1] = a[a.length - 1].slice(0, -1) + b.shift();
       }
     }
@@ -638,6 +700,63 @@ function buildSections(pageLines, verse) {
 
 /* ---------- კითხვები ---------- */
 
+/**
+ * ქულის გარეშე დაწერილი ნომერი კითხვაა თუ ლექსის სტროფი? ვამოწმებთ, მოსდევს
+ * თუ არა მას პასუხების ვარიანტები (მინიმუმ ორი) შემდეგ ნომრამდე. სტროფს არ
+ * მოსდევს, კითხვას კი ყოველთვის.
+ */
+function markPlainQuestions(lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const s = lines[i].text.trim();
+    if (!PLAIN_QUESTION_RE.test(s) || QUESTION_RE.test(s)) continue;
+    let options = 0;
+    for (let j = i + 1; j < lines.length; j++) {
+      const t = lines[j].text.trim();
+      if (OPTION_RE.test(t)) { options++; if (options >= 2) break; continue; }
+      if (QUESTION_RE.test(t) || PLAIN_QUESTION_RE.test(t)) break;
+    }
+    if (options >= 2) lines[i].plainQuestion = true;
+  }
+}
+
+function isQuestionLine(line) {
+  return QUESTION_RE.test(line.text.trim()) || !!line.plainQuestion;
+}
+
+/**
+ * გვერდების დაშლა ბლოკებად: ტექსტი, ინსტრუქცია, კითხვები, თხზულება.
+ * მარკერებს ხმაურის გაფილტვრამდე ვამოწმებთ — „ა) წაკითხულის გააზრება“
+ * თვითონ ხმაურია, მაგრამ ბლოკის საზღვარსაც ნიშნავს.
+ */
+function splitHeadAndQuestions(pages) {
+  const textPages = [], questionLines = [];
+  let mode = 'text';
+  let taskNumber = 0;
+
+  for (const page of pages) {
+    markPlainQuestions(page.lines);
+    const keep = [];
+
+    for (const line of page.lines) {
+      const s = line.text.trim();
+
+      if (ESSAY_RE.test(s) || DRAFT_RE.test(s)) { mode = 'skip'; continue; }
+      const mt = TASK_RE.exec(s);
+      if (mt) { taskNumber = +mt[1]; mode = 'text'; continue; }
+      if (READ_RE.test(s)) mode = 'text';
+      if (COMPREHENSION_RE.test(s)) { mode = 'instruction'; continue; }
+      if (isQuestionLine(line)) mode = 'questions';
+
+      if (line.noise) continue;
+      if (mode === 'questions') questionLines.push(line);
+      else if (mode === 'text') keep.push(line);
+    }
+
+    if (keep.length) textPages.push({ page: page, lines: keep });
+  }
+  return { textPages: textPages, questionLines: questionLines, taskNumber: taskNumber };
+}
+
 /** კითხვა ორივე ფორმატში: „(1) 3. …“ და „3. …“ */
 function matchQuestion(text) {
   const m = QUESTION_RE.exec(text);
@@ -645,54 +764,6 @@ function matchQuestion(text) {
   const p = PLAIN_QUESTION_RE.exec(text);
   if (p) return { number: +p[1], points: DEFAULT_POINTS, text: p[2].trim() };
   return null;
-}
-
-/** რამდენი განსხვავებული ვარიანტის ასო („ა)“, „ბ)“ …) არის გვერდზე */
-function countOptionKeys(lines) {
-  const keys = [];
-  for (const l of lines) {
-    const m = OPTION_RE.exec(l.text.trim());
-    if (m && keys.indexOf(m[1]) === -1) keys.push(m[1]);
-  }
-  return keys.length;
-}
-
-/**
- * სად იწყება კითხვა ამ გვერდზე (-1, თუ ეს ტექსტის გვერდია).
- * „(ქულა) ნომერი.“ თავისთავად საკმარისია. ქულის გარეშე დაწერილ ნომერს
- * მაშინ ვცნობთ, თუ იმავე გვერდზე სამი ან მეტი ვარიანტია — თორემ
- * ლექსის დანომრილი სტროფი („1.“, „2.“ …) კითხვად ჩაითვლებოდა.
- */
-function findQuestionStart(lines) {
-  for (let i = 0; i < lines.length; i++) {
-    if (QUESTION_RE.test(lines[i].text.trim())) return i;
-  }
-  if (countOptionKeys(lines) < 3) return -1;
-  for (let i = 0; i < lines.length; i++) {
-    const s = lines[i].text.trim();
-    if (OPTION_RE.test(s)) return -1;
-    if (PLAIN_QUESTION_RE.test(s)) return i;
-  }
-  return -1;
-}
-
-/** ტექსტის გვერდები vs. კითხვების გვერდები — პირველ კითხვამდე */
-function splitHeadAndQuestions(pages) {
-  const textPages = [], questionLines = [];
-  let hit = false;
-  for (const page of pages) {
-    const lines = page.kept;
-    if (hit) { questionLines.push.apply(questionLines, lines); continue; }
-    const found = findQuestionStart(lines);
-    if (found === -1) {
-      if (lines.length) textPages.push({ page: page, lines: lines });
-    } else {
-      hit = true;
-      if (found) textPages.push({ page: page, lines: lines.slice(0, found) });
-      questionLines.push.apply(questionLines, lines.slice(found));
-    }
-  }
-  return { textPages: textPages, questionLines: questionLines };
 }
 
 function parseQuestions(lines) {
@@ -725,11 +796,12 @@ function parseQuestions(lines) {
 
     if (!current) continue;
     if (target === 'option' && current.options.length) {
-      current.options[current.options.length - 1].text += ' ' + s;
+      const last = current.options[current.options.length - 1];
+      last.text = appendText(last.text, s);
     } else if (!current.options.length) {
       // კითხვის ტექსტი ორ სტრიქონზეც შეიძლება იყოს — სანამ პასუხები
       // არ დაიწყო, ყველაფერი კითხვის ტექსტია
-      current.text += ' ' + s;
+      current.text = appendText(current.text, s);
     }
   }
   flush();
@@ -742,6 +814,8 @@ function parseQuestions(lines) {
 function buildTest(raw, filename) {
   if (!raw.length) throw new Error('ცარიელი PDF');
 
+  if (looksLegacy(raw)) decodeLegacy(raw);
+
   const pages = raw.map(p => ({
     width: p.width, height: p.height, words: p.words, lines: buildLines(p.words),
   }));
@@ -749,9 +823,11 @@ function buildTest(raw, filename) {
 
   const split = splitHeadAndQuestions(pages);
   const textPages = split.textPages;
+  const taskNumber = split.taskNumber;
   if (!textPages.length) throw new Error('ტექსტის გვერდები ვერ მოიძებნა');
 
   const header = parseHeader(textPages[0].lines);
+  if (!header.taskNumber) header.taskNumber = taskNumber;
 
   // ტექსტის სხეული — ჰედერის გარეშე, სვეტებად დალაგებული
   let columns = 1;
@@ -781,8 +857,21 @@ function buildTest(raw, filename) {
     const b = bare(e);
     return !(b.length >= 4 && known.some(k => k.indexOf(b) >= 0 || b.indexOf(k) >= 0));
   })[0] || '';
-  const idParts = [work || author || filename, episode].filter(Boolean);
-  const id = translit(idParts.join(' ')) || 'test';
+  // ძალიან გრძელი სათაური ფაილის სახელად არ ვარგა („ამ წიგნთა გამლექსავის
+  // გვარისა და სახელის გამოცხადება“) — ასეთ დროს id-ს ფაილის სახელიდან ვიღებთ
+  // („დავითიანი“). ნაჩვენები სათაური უცვლელი რჩება.
+  let idBase = work || author || filename;
+  if (idBase.length > 36) {
+    const short = fn.extras.filter(e => e.length <= 36 && bare(e) !== bare(author))[0];
+    if (short) idBase = short;
+  }
+
+  const idParts = [idBase, bare(episode) === bare(idBase) ? '' : episode].filter(Boolean);
+  let id = translit(idParts.join(' ')) || 'test';
+  if (id.length > 48) {
+    const cut = id.lastIndexOf('-', 48);
+    id = id.slice(0, cut > 12 ? cut : 48);
+  }
 
   const test = {
     id: id,
