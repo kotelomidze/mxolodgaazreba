@@ -364,6 +364,28 @@
       "keyComplete": false
     },
     {
+      "id": "samoseli-pirveli",
+      "file": "test-samoseli-pirveli.json",
+      "title": "ტექსტი II",
+      "author": "",
+      "work": "სამოსელი პირველი",
+      "order": 999,
+      "source": "რომანში „სამოსელი პირველი“ გურამ დოჩანაშვილი მოგვითხრობს, რომ იარაღის საყიდ-",
+      "questionCount": 15,
+      "keyComplete": false
+    },
+    {
+      "id": "samoseli-pirveli-2",
+      "file": "test-samoseli-pirveli-2.json",
+      "title": "ტექსტი II",
+      "author": "",
+      "work": "სამოსელი პირველი",
+      "order": 999,
+      "source": "რომანში „სამოსელი პირველი“ გურამ დოჩანაშვილი მოგვითხრობს",
+      "questionCount": 15,
+      "keyComplete": false
+    },
+    {
       "id": "sasotsarkvetileba",
       "file": "test-sasotsarkvetileba.json",
       "title": "ტექსტი I",
@@ -371,6 +393,17 @@
       "work": "სასოწარკვეთილება",
       "order": 999,
       "source": "აკაკი წერეთლის ლექსი „სასოწარკვეთილება“",
+      "questionCount": 15,
+      "keyComplete": false
+    },
+    {
+      "id": "sheni-tavgadasavali",
+      "file": "test-sheni-tavgadasavali.json",
+      "title": "ტექსტი II",
+      "author": "",
+      "work": "შენი თავგადასავალი",
+      "order": 999,
+      "source": "რომანში „შენი თავგადასავალი“ აკა მორჩილაძე მოგვითხრობს ქართველი ემიგრანტის შესა-",
       "questionCount": 15,
       "keyComplete": false
     },
@@ -458,7 +491,7 @@
       "author": "შოთა რუსთაველი",
       "work": "ვეფხისტყაოსანი",
       "order": 999,
-      "source": "„ვეფხისტყაოსანში“ მოთხრობილია ქაჯეთის ციხესთან სამი რაინდის თათბირის შესახებ",
+      "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
       "questionCount": 15,
       "keyComplete": false
     },
@@ -469,7 +502,7 @@
       "author": "შოთა რუსთაველი",
       "work": "ვეფხისტყაოსანი",
       "order": 999,
-      "source": "„ვეფხისტყაოსანში“ ტარიელი უამბობს ავთანდილს სასახლეში გამართული თათბირის შესახებ, რომელიც ნესტანის",
+      "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
       "questionCount": 15,
       "keyComplete": false
     },
@@ -480,7 +513,7 @@
       "author": "შოთა რუსთაველი",
       "work": "ვეფხისტყაოსანი",
       "order": 999,
-      "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
+      "source": "„ვეფხისტყაოსნის“ ავტორი მოგვითხრობს თინათინისა და ავთანდილის შეხვედრის შესახებ",
       "questionCount": 15,
       "keyComplete": false
     },
@@ -491,7 +524,7 @@
       "author": "შოთა რუსთაველი",
       "work": "ვეფხისტყაოსანი",
       "order": 999,
-      "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
+      "source": "„ვეფხისტყაოსანში“ აღწერილია თინათინის გამეფების შემდეგ გამართული ნადიმი",
       "questionCount": 15,
       "keyComplete": false
     },
