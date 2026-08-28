@@ -99,7 +99,7 @@
           "text": "არ არის მატყუარა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 4,
@@ -124,7 +124,7 @@
           "text": "ტანჯვა სულის უკვდავებას განაპირობებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 5,
@@ -149,7 +149,7 @@
           "text": "კმაყოფილება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 6,
@@ -174,7 +174,7 @@
           "text": "ეპითეტი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 7,
@@ -199,7 +199,7 @@
           "text": "შემოქმედებით მოღვაწეობაში."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -224,7 +224,7 @@
           "text": "წუთისოფლისაგან ადამიანი სარგებელს ყოველთვის ნახავს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 9,
@@ -249,7 +249,7 @@
           "text": "„ძეთა და ასულთაგანაც გამხადა უღირსადაო“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 10,
@@ -274,7 +274,7 @@
           "text": "სამშობლოს მოსწყვიტა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 11,
@@ -299,7 +299,7 @@
           "text": "საწუთრო კეთილი და სამართლიანია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 12,
@@ -324,7 +324,7 @@
           "text": "ვინც სამშობლოსათვის თავს გაწირავს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 13,
@@ -349,7 +349,7 @@
           "text": "გაცრუებული იმედების."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 14,
@@ -374,7 +374,7 @@
           "text": "მივიწყებული მეგობარი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 15,
@@ -399,7 +399,7 @@
           "text": "„მე რაც ვშობე, შვილად ვსჯერვარ, ეს თუ მზრდელმან გამიზარდა“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 16,
@@ -424,7 +424,7 @@
           "text": "„ამად ვემდური საწუთროს, თორემ სხვა რა მაქვს სადაო?"
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 17,
@@ -449,7 +449,7 @@
           "text": "ღმერთის უარყოფის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     }
   ]
 }

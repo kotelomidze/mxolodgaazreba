@@ -72,7 +72,7 @@
           "text": "იგავს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 4,
@@ -97,7 +97,7 @@
           "text": "ღარიბ ახალგაზრდას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 5,
@@ -122,7 +122,7 @@
           "text": "უცხოობაში გულის გადასაყოლებლად."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 6,
@@ -147,7 +147,7 @@
           "text": "ღმერთს ბოდიში მოუხადა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 7,
@@ -172,7 +172,7 @@
           "text": "„ცხრა ფლური მოიღვაწა“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 8,
@@ -197,7 +197,7 @@
           "text": "შურიანობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 9,
@@ -222,7 +222,7 @@
           "text": "სისასტიკე და შურისმაძიებლობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 10,
@@ -247,7 +247,7 @@
           "text": "მომხდარმა სხვისთვის პატივის მიგების აუცილებლობაში დაარწმუნა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 11,
@@ -272,7 +272,7 @@
           "text": "მჭევრმეტყველება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 12,
@@ -297,7 +297,7 @@
           "text": "სიძუნწეზე."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 13,
@@ -322,7 +322,7 @@
           "text": "სამეფოს დაშლის მიზეზად იქცა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 14,
@@ -347,7 +347,7 @@
           "text": "ბოროტების ჩამდენი დაუსჯელი რჩებაო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 15,
@@ -372,7 +372,7 @@
           "text": "მან ღმერთისათვის მიცემული პირობა შეასრულა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 16,
@@ -397,7 +397,7 @@
           "text": "ალეგორიას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 17,
@@ -422,7 +422,7 @@
           "text": "უსამართლობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     }
   ]
 }

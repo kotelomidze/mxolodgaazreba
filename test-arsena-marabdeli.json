@@ -68,7 +68,7 @@
           "text": "შემწყნარებლური."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 4,
@@ -93,7 +93,7 @@
           "text": "არსენა გადაყოლილი იყო გლეხობაზე, თუმცა პასუხად სიძულვილი მიიღო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 5,
@@ -118,7 +118,7 @@
           "text": "იგი გამოსავალს ეძებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 6,
@@ -143,7 +143,7 @@
           "text": "წინდახედულობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 7,
@@ -168,7 +168,7 @@
           "text": "დაეჭვება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -193,7 +193,7 @@
           "text": "„ძმადნაფიცები მყავდა და ზოგი დამიხოცეს და ზოგიც გააციმბირეს“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 9,
@@ -218,7 +218,7 @@
           "text": "სიფრთხილის გრძნობა მოუდუნდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 10,
@@ -243,7 +243,7 @@
           "text": "სუფრას რომ მოშორებოდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 11,
@@ -268,7 +268,7 @@
           "text": "მისი წინდაუხედაობისა და გულგრილობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 12,
@@ -293,7 +293,7 @@
           "text": "ჰიპერბოლა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 13,
@@ -318,7 +318,7 @@
           "text": "ბრძოლის რაინდული წესის უგულებელყოფა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 14,
@@ -343,7 +343,7 @@
           "text": "ლეკის არსებობა საერთოდ არ იცოდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 15,
@@ -368,7 +368,7 @@
           "text": "არსენას ძალების მოკრება შეუძლია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 16,
@@ -393,7 +393,7 @@
           "text": "მისი მტერი ცოცხალი რჩებოდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 17,
@@ -418,7 +418,7 @@
           "text": "„მარცხენა ხელში კი სატევარი ეჭირა და აჩრდილივით მისტორტმანებდა“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     }
   ]
 }

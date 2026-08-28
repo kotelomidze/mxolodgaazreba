@@ -75,7 +75,7 @@
           "text": "თოუხანი უჯუშზე ძლიერ ნაწყენია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 4,
@@ -100,7 +100,7 @@
           "text": "სასოწარკვეთას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 5,
@@ -125,7 +125,7 @@
           "text": "ჰაკის ერთგულება რომ გამოეცადათ."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 6,
@@ -150,7 +150,7 @@
           "text": "უჯუშს განწირულების განცდა რომ გაუძლიეროს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 7,
@@ -175,7 +175,7 @@
           "text": "ღირსეულობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -200,7 +200,7 @@
           "text": "„ხელების გაშლით წამოიგმინა მან“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 9,
@@ -225,7 +225,7 @@
           "text": "ჰიპერბოლა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 10,
@@ -250,7 +250,7 @@
           "text": "მისთვის ცხადი გახდა, რომ უჯუში ყველას უყვარს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 11,
@@ -275,7 +275,7 @@
           "text": "ჰაკი სიცოცხლეს საფრთხეში არ ჩაიგდებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 12,
@@ -300,7 +300,7 @@
           "text": "ხვდებოდა, რომ ჰაკი აძბა უჯუშს შეეწირებოდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 13,
@@ -325,7 +325,7 @@
           "text": "წინდახედულება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 14,
@@ -350,7 +350,7 @@
           "text": "ჰაკი ცდილობდა ზღვაში გადახტომას, რათა სოხუმელებს მიშველებოდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 15,
@@ -375,7 +375,7 @@
           "text": "შინაგან მღელვარებას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 16,
@@ -400,7 +400,7 @@
           "text": "ღირსების დასაცავად ადამიანმა შეიძლება თავიც გაწიროს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 17,
@@ -425,7 +425,7 @@
           "text": "ქალისა და მამაკაცის სიყვარულის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     }
   ]
 }

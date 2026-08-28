@@ -95,7 +95,7 @@
           "text": "სიკვდილს."
         }
       ],
-      "correctAnswer": "გ"
+      "correctAnswer": "დ"
     },
     {
       "id": 4,
@@ -120,7 +120,7 @@
           "text": "იგი ბედისწერას ემორჩილება."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "ა"
     },
     {
       "id": 5,
@@ -145,7 +145,7 @@
           "text": "დაღამდება."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "გ"
     },
     {
       "id": 6,
@@ -170,7 +170,7 @@
           "text": "აღშფოთება და ზიზღი."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "ა"
     },
     {
       "id": 7,
@@ -195,7 +195,7 @@
           "text": "გულგრილი."
         }
       ],
-      "correctAnswer": "გ"
+      "correctAnswer": "ბ"
     },
     {
       "id": 8,
@@ -220,7 +220,7 @@
           "text": "შედარება."
         }
       ],
-      "correctAnswer": "ა"
+      "correctAnswer": "ბ"
     },
     {
       "id": 9,
@@ -245,7 +245,7 @@
           "text": "იგის თანამოძმეები პრიმიტიულად აზროვნებენ."
         }
       ],
-      "correctAnswer": "გ"
+      "correctAnswer": "დ"
     },
     {
       "id": 10,
@@ -270,7 +270,7 @@
           "text": "იგი ზუს გაუჩინარებით შეშფოთებულია."
         }
       ],
-      "correctAnswer": "ა"
+      "correctAnswer": "ბ"
     },
     {
       "id": 11,
@@ -320,7 +320,7 @@
           "text": "იგი ფიქრობს ხვალინდელ განსაცდელზე და სიტყვებს მნიშვნელობას არ ანიჭებს."
         }
       ],
-      "correctAnswer": "გ"
+      "correctAnswer": "ა"
     },
     {
       "id": 13,
@@ -345,7 +345,7 @@
           "text": "შეუპოვრობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 14,
@@ -370,7 +370,7 @@
           "text": "ალუზია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 15,
@@ -395,7 +395,7 @@
           "text": "„ნის თმა ისეთია, როგორიცაა ჩამოცვენილი ფოთოლი“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 16,
@@ -420,7 +420,7 @@
           "text": "„იგი თურმე ისეთი არ არის, როგორიც არიან სხვები“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 17,
@@ -445,7 +445,7 @@
           "text": "ურთიერთობით ტკბობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     }
   ]
 }

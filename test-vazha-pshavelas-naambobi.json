@@ -63,7 +63,7 @@
           "text": "მარტოობაში სიკვდილი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 4,
@@ -88,7 +88,7 @@
           "text": "პოეზია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 5,
@@ -113,7 +113,7 @@
           "text": "მისთვის თვითგამოხატვის უმთავრესი საშუალება პოეტური შემოქმედებაა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 6,
@@ -138,7 +138,7 @@
           "text": "შორსმჭვრეტელობაზე."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 7,
@@ -163,7 +163,7 @@
           "text": "ლირიკული გმირი თავისუფლებისმოყვარე პიროვნებაა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -188,7 +188,7 @@
           "text": "შესანიშნავ მონადირედ ჩამოვყალიბდი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 9,
@@ -213,7 +213,7 @@
           "text": "რათა მას „კაცის და ქვეყნის“ გასაჭირი შეეცნო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 10,
@@ -238,7 +238,7 @@
           "text": "ბუნების მშვენიერება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 11,
@@ -263,7 +263,7 @@
           "text": "შედარება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 12,
@@ -288,7 +288,7 @@
           "text": "„სატრფოს ეშხმა“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 13,
@@ -313,7 +313,7 @@
           "text": "წარსულის მონატრება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 14,
@@ -338,7 +338,7 @@
           "text": "ტკივილით ტკივილს აყუჩებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 15,
@@ -363,7 +363,7 @@
           "text": "ვაჟასავით ბუნების შვილია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 16,
@@ -388,7 +388,7 @@
           "text": "რწმენის უარყოფის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 17,
@@ -413,7 +413,7 @@
           "text": "„უმეგობრობა არ მიგლოვია და არც მოლექსე მყავს წინაპარი“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     }
   ]
 }

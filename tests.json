@@ -9,7 +9,7 @@
       "order": 999,
       "source": "დავით გურამიშვილის ლექსი „ამ წიგნთა გამლექსავის გვარისა და სახელის გამოცხადება“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "anderdzi-davit-guramisshvilisa",
@@ -20,7 +20,7 @@
       "order": 999,
       "source": "დავით გურამიშვილის ლექსი „ანდერძი დავით გურამისშვილისა“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "antonio-da-daviti",
@@ -31,7 +31,7 @@
       "order": 999,
       "source": "მოთხრობაში „ანტონიო და დავითი“ ჯემალ ქარჩხაძე გადმოგვცემს ევროპელი მისიონერის,",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "arsena-marabdeli",
@@ -42,7 +42,7 @@
       "order": 999,
       "source": "მონაკვეთი მიხეილ ჯავახიშვილის რომანიდან „არსენა მარაბდელი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "davit-guramisshvilisagan-satsutos-soplis",
@@ -53,7 +53,7 @@
       "order": 999,
       "source": "ნაწყვეტები ლექსიდან „დავით გურამისშვილისაგან საწუთოს სოფლის სამდურავი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-121-aka-morchiladze-sheni-tavgadasavali",
@@ -64,18 +64,18 @@
       "order": 999,
       "source": "",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-121-vepkhistqaosani",
       "file": "test-gaazreba-121-vepkhistqaosani.json",
       "title": "ტექსტი I",
       "author": "რუსთაველი",
-      "work": "(ანდერძი) არდავიწყება მოყვრისა",
+      "work": "ვეფხისტყაოსანი – ანდერძი (არდავიწყება მოყვრისა)",
       "order": 999,
       "source": "ავთანდილი სწერს მეფე როსტევანს:",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-122-chabua-amirejibi-data-tutashkhia",
@@ -86,18 +86,18 @@
       "order": 999,
       "source": "ყურადღებით წაიკითხეთ ნაწყვეტი ჭაბუა ამირეჯიბის რომანიდან „დათა თუთაშხია“:",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-122-vepistqaosani",
       "file": "test-gaazreba-122-vepistqaosani.json",
       "title": "ტექსტი I",
       "author": "რუსთაველი",
-      "work": "ანდერძი (ვიცი, ბოლოდ არ დამიგმობ...)",
+      "work": "ვეფხისტყაოსანი – ანდერძი (ვიცი, ბოლოდ არ დამიგმობ...)",
       "order": 999,
       "source": "ავთანდილი სწერს მეფე როსტევანს:",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-123-guram-dochanashvili-samoseli",
@@ -108,7 +108,7 @@
       "order": 999,
       "source": "",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-133-guram-dochanashvili-samoseli",
@@ -119,7 +119,7 @@
       "order": 999,
       "source": "",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gaazreba-182-rustaveli-vepkhistqaosani",
@@ -130,7 +130,7 @@
       "order": 999,
       "source": "",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gamotkhoveba",
@@ -141,7 +141,7 @@
       "order": 999,
       "source": "ოთარ ჭილაძის ლექსი „გამოთხოვება“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gogcha",
@@ -152,7 +152,7 @@
       "order": 999,
       "source": "ალექსანდრე ჭავჭავაძის ლექსი „გოგჩა“ (შემოკლებული ვარიანტი)",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "gora-mborgali",
@@ -163,7 +163,7 @@
       "order": 999,
       "source": "ნაწყვეტი ჭაბუა ამირეჯიბის რომანიდან „გორა მბორგალი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "grigol-khandztelis-tskhovreba",
@@ -174,7 +174,7 @@
       "order": 999,
       "source": "თხზულებაში „გრიგოლ ხანძთელის ცხოვრება“ გიორგი მერჩულე მოგვითხრობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "grigol-khandztelis-tskhovreba-2",
@@ -185,7 +185,7 @@
       "order": 999,
       "source": "თხზულებაში „გრიგოლ ხანძთელის ცხოვრება“ გიორგი მერჩულე მოგვითხრობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "haki-adzba",
@@ -196,7 +196,7 @@
       "order": 999,
       "source": "ნაწარმოებში „ჰაკი აძბა“ ლეო ქიაჩელი მოგვითხრობს, რომ თეთრგვარდიელმა ოფიცერმა",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "igi",
@@ -207,7 +207,7 @@
       "order": 999,
       "source": "მოთხრობაში „იგი“ ჯემალ ქარჩხაძე გვიამბობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "iupiteris-sinanuli",
@@ -218,7 +218,7 @@
       "order": 999,
       "source": "რომანში „იუპიტერის სინანული“ ჯემალ ქარჩხაძე მოგვითხრობს, თუ როგორ ცდილობს რომაელი იმპერატორი ნერონი,",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "iupiteris-sinanuli-2",
@@ -229,7 +229,7 @@
       "order": 999,
       "source": "თხზულებაში „იუპიტერის სინანული“ ჯემალ ქარჩხაძე იმპერატორ ნერონის უკანასკნელი ღამის შესახებ მოგვითხრობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "katsia-adamiani",
@@ -240,7 +240,7 @@
       "order": 999,
       "source": "ილია ჭავჭავაძის მოთხრობაში „კაცია-ადამიანი?!“ ვკითხულობთ, თუ როგორ მოატყუეს ლუარსაბ თათქარიძის ძმა დავითი და",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "katsia-adamiani-2",
@@ -251,7 +251,7 @@
       "order": 999,
       "source": "ილია ჭავჭავაძის თხზულებაში „კაცია-ადამიანი?!“ მოთხრობილია ლუარსაბისა და დარეჯანის დაქორწინების ამბავი",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "lamazi-tsremlebi",
@@ -262,7 +262,7 @@
       "order": 999,
       "source": "ნაწყვეტები რევაზ ინანიშვილის მოთხრობიდან „ლამაზი ცრემლები“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "lara",
@@ -273,7 +273,7 @@
       "order": 999,
       "source": "ნაწყვეტი რევაზ ინანიშვილის მოთხრობიდან „ლარა“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "mearghneebi-da-poetebi",
@@ -284,7 +284,7 @@
       "order": 999,
       "source": "ტიციან ტაბიძის ლექსი „მეარღნეები და პოეტები“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "motkma-khmita-tav-bolo-erti",
@@ -295,7 +295,7 @@
       "order": 999,
       "source": "დავით გურამიშვილის ლექსი „მოთქმა ხმითა თავ-ბოლო ერთი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "mziani-ghame",
@@ -306,7 +306,7 @@
       "order": 999,
       "source": "მონაკვეთი ნოდარ დუმბაძის რომანიდან „მზიანი ღამე“, რომელ-",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "mziani-ghame-2",
@@ -317,7 +317,7 @@
       "order": 999,
       "source": "ნოდარ დუმბაძის რომანში „მზიანი ღამე“ მოთხრობილია, როგორ ნახა თემურმა კიბეზე წაქ-",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "natsris-koshki",
@@ -328,7 +328,7 @@
       "order": 999,
       "source": "მონაკვეთი გურამ გეგეშიძის რომანიდან „ნაცრის კოშკი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "natvris-khe",
@@ -339,7 +339,7 @@
       "order": 999,
       "source": "გიორგი ლეონიძის მოთხრობა „ნატვრის ხე“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "pikrni-mtkvris-pirzed",
@@ -350,7 +350,7 @@
       "order": 999,
       "source": "ნიკოლოზ ბარათაშვილის ლექსი „ფიქრნი მტკვრის პირზედ“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "saghamo-gamosalmebisa",
@@ -361,7 +361,7 @@
       "order": 999,
       "source": "გრიგოლ ორბელიანის ლექსი „საღამო გამოსალმებისა“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "samoseli-pirveli",
@@ -372,7 +372,7 @@
       "order": 999,
       "source": "რომანში „სამოსელი პირველი“ გურამ დოჩანაშვილი მოგვითხრობს, რომ იარაღის საყიდ-",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "samoseli-pirveli-2",
@@ -383,7 +383,7 @@
       "order": 999,
       "source": "რომანში „სამოსელი პირველი“ გურამ დოჩანაშვილი მოგვითხრობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "sasotsarkvetileba",
@@ -394,7 +394,7 @@
       "order": 999,
       "source": "აკაკი წერეთლის ლექსი „სასოწარკვეთილება“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "sibrdzne-sitsruisa",
@@ -405,7 +405,7 @@
       "order": 999,
       "source": "ნაწყვეტები სულხან-საბა ორბელიანის წიგნიდან „სიბრძნე სიცრუისა“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "sibrdzne-sitsruisa-gaazreba-162-sulkhan-saba",
@@ -416,7 +416,7 @@
       "order": 999,
       "source": "სულხან-საბა ორბელიანის წიგნში „სიბრძნე სიცრუისა“ სედრაქი ჰყვება არაკს „მეფე ხორასნისა“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "sibrdzne-sitsruisa-gaazreba-163-sulkhan-saba",
@@ -427,7 +427,7 @@
       "order": 999,
       "source": "სულხან-საბა ორბელიანის წიგნში „სიბრძნე სიცრუისა“ რუქა ჰყვება",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "sokhumshi-dabruneba",
@@ -438,7 +438,7 @@
       "order": 999,
       "source": "ნაწყვეტი გურამ ოდიშარიას წიგნიდან „სოხუმში დაბრუნება“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "tamar-mepis-sakhe-betaniis-eklesiashi",
@@ -449,7 +449,7 @@
       "order": 999,
       "source": "გრიგოლ ორბელიანის ლექსი „თამარ მეფის სახე ბეთანიის ეკლესიაში“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "tsikhis-sizmari",
@@ -460,7 +460,7 @@
       "order": 999,
       "source": "ლადო ასათიანის ლექსი „ციხის სიზმარი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vazha-pshavelas-naambobi",
@@ -471,7 +471,7 @@
       "order": 999,
       "source": "ლადო ასათიანის ლექსი „ვაჟა-ფშაველას ნაამბობი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani",
@@ -482,7 +482,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-2",
@@ -493,18 +493,18 @@
       "order": 999,
       "source": "„ვეფხისტყაოსნის“ პროლოგში ვკითხულობთ",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-3",
       "file": "test-vepkhistqaosani-3.json",
       "title": "ტექსტი I",
       "author": "რუსთაველი",
-      "work": "ვეფხისტყაოსანი (თინათინ-ავთანდილის შეხვედრა)",
+      "work": "ვეფხისტყაოსანი (გაძრცვილსა ტანსა...)",
       "order": 999,
       "source": "„ვეფხისტყაოსნის“ ავტორი მოგვითხრობს თინათინისა და ავთანდილის შეხვედრის შესახებ",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-4",
@@ -515,7 +515,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსანში“ აღწერილია თინათინის გამეფების შემდეგ გამართული ნადიმი",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-5",
@@ -526,7 +526,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსნის“ ავტორი მოგვითხრობს თინათინისა და ავთანდილის შეხვედრის შესახებ",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-6",
@@ -537,7 +537,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსანში“ აღწერილია თინათინის გამეფების შემდეგ გამართული ნადიმი",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-7",
@@ -548,7 +548,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსანში“ ტარიელი ავთანდილს ხატაელებთან ბრძოლის ამბავს უამბობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-8",
@@ -559,7 +559,7 @@
       "order": 999,
       "source": "„ვეფხისტყაოსანში“ მოთხრობილია თინათინის გამეფების ამბავი",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vpove-tadzari",
@@ -570,7 +570,7 @@
       "order": 999,
       "source": "ნიკოლოზ ბარათაშვილის ლექსი „ვპოვე ტაძარი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "zakhili",
@@ -581,7 +581,7 @@
       "order": 999,
       "source": "დავით წერედიანის ლექსი „ზახილი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "davitiani",
@@ -592,7 +592,7 @@
       "order": 1541,
       "source": "მონაკვეთი დავით გურამიშვილის წიგნიდან „დავითიანი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "samanishvilis-dedinatsvali",
@@ -603,7 +603,7 @@
       "order": 1542,
       "source": "მონაკვეთი დავით კლდიაშვილის მოთხრობიდან „სამანიშვილის დედინაცვალი“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "vepkhistqaosani-khataelebtan-omi",
@@ -614,7 +614,7 @@
       "order": 1611,
       "source": "„ვეფხისტყაოსანში“ ტარიელი ავთანდილს ხატაელებთან ბრძოლის ამბავს უამბობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "data-tutashkhia",
@@ -625,7 +625,7 @@
       "order": 1612,
       "source": "ნაწყვეტი ჭაბუა ამირეჯიბის რომანიდან „დათა თუთაშხია“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "legendad-darches",
@@ -636,18 +636,18 @@
       "order": 1711,
       "source": "მურმან ლებანიძის ლექსი „ლეგენდად დარჩეს!“",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     },
     {
       "id": "shushanikis-tsameba",
       "file": "test-shushanikis-tsameba.json",
       "title": "ტექსტი II",
       "author": "იაკობ ხუცესი",
-      "work": "შუშანიკის წამება (დაყოლიება, დაბრუნდეს სასახლეში)",
+      "work": "შუშანიკის წამება (პურობა)",
       "order": 1712,
       "source": "თხზულებაში „შუშანიკის წამება“ იაკობ ხუცესი მოგვითხრობს",
       "questionCount": 15,
-      "keyComplete": false
+      "keyComplete": true
     }
   ]
 }

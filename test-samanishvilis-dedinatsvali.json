@@ -90,7 +90,7 @@
           "text": "წინა ღამეს ცოლისძმა გაულახეს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 4,
@@ -115,7 +115,7 @@
           "text": "შეიბრალა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 5,
@@ -140,7 +140,7 @@
           "text": "სინანული."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 6,
@@ -165,7 +165,7 @@
           "text": "პლატონს კირილესთან ძველი მტრობა ჰქონდა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 7,
@@ -190,7 +190,7 @@
           "text": "ეპითეტი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -215,7 +215,7 @@
           "text": "უდარდელობაზე."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 9,
@@ -240,7 +240,7 @@
           "text": "უკმაყოფილება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 10,
@@ -265,7 +265,7 @@
           "text": "წახალისება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 11,
@@ -290,7 +290,7 @@
           "text": "მისთვის მთავარი ქეიფი და დროსტარებაა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 12,
@@ -315,7 +315,7 @@
           "text": "პლატონს სურს, კირილეს თავი დააღწიოს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 13,
@@ -340,7 +340,7 @@
           "text": "უიმედო მდგომარეობას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 14,
@@ -365,7 +365,7 @@
           "text": "მეტაფორა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 15,
@@ -390,7 +390,7 @@
           "text": "სიმამაცე."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 16,
@@ -415,7 +415,7 @@
           "text": "„სწორედ ამის შიშით კირილემ გადათქვა შაფათაძისას მიბრუნება“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 17,
@@ -440,7 +440,7 @@
           "text": "ჩხუბის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     }
   ]
 }

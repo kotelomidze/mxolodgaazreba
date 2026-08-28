@@ -49,7 +49,7 @@
           "text": "ტრაგიკული."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 4,
@@ -74,7 +74,7 @@
           "text": "ლირიკული გმირი სულიერ სიმშვიდეს ეძებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 5,
@@ -99,7 +99,7 @@
           "text": "ხეტიალის შემდეგ დასასვენებლად."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 6,
@@ -124,7 +124,7 @@
           "text": "წრფელი ზრახვებისა და ტრაგიკული ბედის გამო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 7,
@@ -149,7 +149,7 @@
           "text": "ხორციელი სიამოვნების."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 8,
@@ -174,7 +174,7 @@
           "text": "როგორც ღვთაებრივ სამყაროს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 9,
@@ -199,7 +199,7 @@
           "text": "მას ეგონა, რომ ხედავს ტაძარს, რომლის მოძებნაც შეუძლებელია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 10,
@@ -224,7 +224,7 @@
           "text": "წარმტაც მარადიულობას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 11,
@@ -249,7 +249,7 @@
           "text": "ჰიპერბოლა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 12,
@@ -274,7 +274,7 @@
           "text": "წუთისოფლის მუხთლობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 13,
@@ -299,7 +299,7 @@
           "text": "სიყვარულს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 14,
@@ -324,7 +324,7 @@
           "text": "ლირიკული გმირი თავს მოტყუებულად გრძნობს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 15,
@@ -349,7 +349,7 @@
           "text": "შიშის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 16,
@@ -374,7 +374,7 @@
           "text": "წუთისოფლის ულმობლობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 17,
@@ -399,7 +399,7 @@
           "text": "ადამიანი ვერ მოიპოვებს სახალხო აღიარებას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     }
   ]
 }

@@ -137,7 +137,7 @@
           "text": "სხვათა მსგავსს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 4,
@@ -162,7 +162,7 @@
           "text": "საზოგადოება მოთმინებით დაადგა სულის ცხონების გზას."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 5,
@@ -187,7 +187,7 @@
           "text": "„ღვთის საიდუმლო გაგტეხეს, გულში ვერ დაგიტიესო“."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 6,
@@ -212,7 +212,7 @@
           "text": "საზოგადოებისათვის სიკვდილით დასჯა მხოლოდ სანახაობაა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 7,
@@ -237,7 +237,7 @@
           "text": "ცინიკური."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 8,
@@ -262,7 +262,7 @@
           "text": "სრულიად უდანაშაულო სასიკვდილოდ გაგიმეტეს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 9,
@@ -287,7 +287,7 @@
           "text": "შემწყნარებლობა და წინდახედულობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 10,
@@ -312,7 +312,7 @@
           "text": "ჰიპერბოლა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "დ"
     },
     {
       "id": 11,
@@ -337,7 +337,7 @@
           "text": "შორსმჭვრეტელობა და გულწრფელობა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 12,
@@ -362,7 +362,7 @@
           "text": "წინდაუხედაობის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 13,
@@ -387,7 +387,7 @@
           "text": "უფლის წინაშე ძრწოდეთო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 14,
@@ -412,7 +412,7 @@
           "text": "ქვეყნიდან გააძევა."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 15,
@@ -437,7 +437,7 @@
           "text": "„ვაი, რა კარგი საჩინო რა ავად მიგიჩნიესო!“"
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 16,
@@ -462,7 +462,7 @@
           "text": "ნუ ჩაიდენთ ბოროტებას და ხმლით ხელში დაიცავით სამშობლო."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 17,
@@ -487,7 +487,7 @@
           "text": "ღმერთის უარყოფის."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     }
   ]
 }

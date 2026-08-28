@@ -97,7 +97,7 @@
           "text": "იცოდა, რომ საჩუქრის გარეშე დავითს უკან დააბრუნებდნენ."
         }
       ],
-      "correctAnswer": "დ"
+      "correctAnswer": "გ"
     },
     {
       "id": 5,
@@ -122,7 +122,7 @@
           "text": "ქორწილის დაჩქარება მოსთხოვეს."
         }
       ],
-      "correctAnswer": "ა"
+      "correctAnswer": "ბ"
     },
     {
       "id": 6,
@@ -172,7 +172,7 @@
           "text": "ნიშნობას დიდ მნიშვნელობას არ ანიჭებს და სურს ხარჯი აირიდოს."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "ა"
     },
     {
       "id": 8,
@@ -197,7 +197,7 @@
           "text": "ირონიას."
         }
       ],
-      "correctAnswer": "გ"
+      "correctAnswer": "დ"
     },
     {
       "id": 9,
@@ -247,7 +247,7 @@
           "text": "სიმხდალეზე."
         }
       ],
-      "correctAnswer": "ა"
+      "correctAnswer": "გ"
     },
     {
       "id": 11,
@@ -272,7 +272,7 @@
           "text": "ძმა უბედურებისთვის დაენანა."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "გ"
     },
     {
       "id": 12,
@@ -297,7 +297,7 @@
           "text": "ამპარტავანია."
         }
       ],
-      "correctAnswer": "ბ"
+      "correctAnswer": "გ"
     },
     {
       "id": 13,
@@ -322,7 +322,7 @@
           "text": "მზითევი გამორჩეულად მდიდრულია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 14,
@@ -347,7 +347,7 @@
           "text": "ლუარსაბისთვის მიცემული პირობა რომ არ დაირღვეს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 15,
@@ -372,7 +372,7 @@
           "text": "თავისი საქმრო საერთოდ არ აინტერესებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 16,
@@ -397,7 +397,7 @@
           "text": "იჩხუბეს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 17,
@@ -422,7 +422,7 @@
           "text": "გაუნათლებლი ადამიანი ცბიერებისა და ვერაგობის გზას ადგება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     }
   ]
 }
