@@ -168,7 +168,7 @@ const QUESTION_RE = /^\((\d+)\)\s*(\d+)\.\s*(.*)$/;
  * საიმედო არ არის (სტროფის ნომერიც ასე გამოიყურება), ამიტომ მას მხოლოდ
  * იმ გვერდზე ვენდობით, სადაც პასუხების ვარიანტებიცაა — იხ. findQuestionStart.
  */
-const PLAIN_QUESTION_RE = /^(\d{1,2})\.\s*(\S.*)$/;
+const PLAIN_QUESTION_RE = /^(\d{1,3})\.\s*(\S.*)$/;
 
 /** ნაგულისხმევი ქულა, როცა ფრჩხილებში არაფერი წერია */
 const DEFAULT_POINTS = 1;
@@ -558,13 +558,36 @@ function parseFilename(name) {
 
 /* ---------- ტექსტის სხეული ---------- */
 
+/**
+ * ლექსია თუ პროზა? სამი ნიშანი, ნებისმიერი მათგანი საკმარისია:
+ *
+ * 1. დანომრილი სტროფები — „1.“, „2.“, „3.“ ზედიზედ;
+ * 2. მოკლე სტრიქონები (ძველი წესი);
+ * 3. **მარჯვენა კიდე** — გასწორებულ პროზაში სტრიქონების უმეტესობა ერთსა და
+ *    იმავე ადგილას მთავრდება, ლექსში კი კიდე ფხვიერია. გაზომილი ნიმუშები:
+ *    პროზა 0.55 და 0.70, ლექსი ორივეჯერ 0.02 — ზღვარი 0.30 შუაშია.
+ *    სწორედ ამის გარეშე იწერებოდა გრძელსტრიქონიანი ლექსი პროზად.
+ */
 function isVerse(pageLines) {
-  const texts = [];
-  pageLines.forEach(lines => lines.forEach(l => { if (l.text.trim()) texts.push(l.text.trim()); }));
-  if (texts.length < 6) return false;
-  const lengths = texts.map(l => l.length);
+  const lines = [];
+  pageLines.forEach(ls => ls.forEach(l => { if (l.text.trim()) lines.push(l); }));
+  if (lines.length < 6) return false;
+
+  let expect = 1, numbered = 0;
+  for (const l of lines) {
+    const m = STANZA_RE.exec(l.text.trim());
+    if (m && +m[1] === expect) { numbered++; expect++; }
+  }
+  if (numbered >= 3) return true;
+
+  const lengths = lines.map(l => l.text.trim().length);
   const short = lengths.filter(n => n < 70).length / lengths.length;
-  return median(lengths) < 70 && short >= 0.8;
+  if (median(lengths) < 70 && short >= 0.8) return true;
+
+  const rights = lines.map(l => Math.max.apply(null, l.words.map(w => w.x1)));
+  const maxRight = Math.max.apply(null, rights);
+  const flush = rights.filter(r => maxRight - r <= 5).length / rights.length;
+  return flush < 0.30 && median(lengths) < 100;
 }
 
 /**
@@ -724,35 +747,61 @@ function isQuestionLine(line) {
 }
 
 /**
- * გვერდების დაშლა ბლოკებად: ტექსტი, ინსტრუქცია, კითხვები, თხზულება.
- * მარკერებს ხმაურის გაფილტვრამდე ვამოწმებთ — „ა) წაკითხულის გააზრება“
+ * გვერდების დაშლა ბლოკებად.
+ *
+ * **დასაწყისი.** თუ ფაილში სადმე წერია „დავალება # 1“ (ან # 2), ტესტი სწორედ
+ * იქ იწყება — ყველაფერი მანამდე სხვისია და იყრება. მარკერი რომ არ არის
+ * (ცალკე ამოჭრილი სლაიდები), თავიდანვე ვკრებთ.
+ *
+ * **დასასრული.** ბოლო კითხვის ბოლო პასუხის შემდეგ ფაილში კიდევ ბევრი რამაა:
+ * თხზულების ინსტრუქცია, შავი სამუშაოს ხაზები, მომდევნო დავალება. კითხვების
+ * დაწყების შემდეგ ნებისმიერი ბლოკის მარკერი ტესტს ხურავს — შემდეგ აღარაფერი
+ * აიღება.
+ *
+ * მარკერებს ხმაურის გაფილტვრამდე ვამოწმებთ: „ა) წაკითხულის გააზრება“
  * თვითონ ხმაურია, მაგრამ ბლოკის საზღვარსაც ნიშნავს.
  */
 function splitHeadAndQuestions(pages) {
+  const hasTaskMarker = pages.some(p => p.lines.some(l => TASK_RE.test(l.text.trim())));
+
   const textPages = [], questionLines = [];
-  let mode = 'text';
+  let mode = hasTaskMarker ? 'skip' : 'text';
   let taskNumber = 0;
+  let started = false;
 
   for (const page of pages) {
     markPlainQuestions(page.lines);
     const keep = [];
 
     for (const line of page.lines) {
+      if (mode === 'done') break;
       const s = line.text.trim();
 
-      if (ESSAY_RE.test(s) || DRAFT_RE.test(s)) { mode = 'skip'; continue; }
       const mt = TASK_RE.exec(s);
-      if (mt) { taskNumber = +mt[1]; mode = 'text'; continue; }
-      if (READ_RE.test(s)) mode = 'text';
-      if (COMPREHENSION_RE.test(s)) { mode = 'instruction'; continue; }
+      if (mt) {
+        if (started) { mode = 'done'; break; }
+        taskNumber = +mt[1];
+        mode = 'text';
+        continue;
+      }
+      if (ESSAY_RE.test(s) || DRAFT_RE.test(s)) {
+        mode = questionLines.length ? 'done' : 'skip';
+        continue;
+      }
+      if (COMPREHENSION_RE.test(s)) {
+        mode = questionLines.length ? 'done' : 'instruction';
+        continue;
+      }
+      if (READ_RE.test(s) && mode === 'skip') mode = 'text';
       if (isQuestionLine(line)) mode = 'questions';
 
       if (line.noise) continue;
-      if (mode === 'questions') questionLines.push(line);
-      else if (mode === 'text') keep.push(line);
+      if (mode === 'questions') { questionLines.push(line); started = true; }
+      else if (mode === 'text') { keep.push(line); started = true; }
     }
 
     if (keep.length) textPages.push({ page: page, lines: keep });
+    if (mode === 'done') break;
   }
   return { textPages: textPages, questionLines: questionLines, taskNumber: taskNumber };
 }
@@ -764,6 +813,33 @@ function matchQuestion(text) {
   const p = PLAIN_QUESTION_RE.exec(text);
   if (p) return { number: +p[1], points: DEFAULT_POINTS, text: p[2].trim() };
   return null;
+}
+
+/** დამთავრებული წინადადება — მის შემდეგ მოსული ხაზი გაგრძელება აღარაა */
+function endsSentence(text) {
+  return /[.!?…][“”»)\]]?$/.test(text.trim());
+}
+
+/**
+ * კითხვების ნომრები. სუფთა ფაილში ისინი ზედიზედ მიდის (3, 4, 5 …) და
+ * ხელს არ ვახლებთ. ზოგ PDF-ში კი ნომერს გვერდით მეორე ციფრი ეწებება და
+ * გამოდის 33, 44, 110, 117… ასეთ დროს რიგითობას ვენდობით და თავიდან
+ * ვნომრავთ — რამდენი კითხვაცაა, იმდენს, პირველი ნომრიდან დაწყებული.
+ */
+function renumber(questions) {
+  if (!questions.length) return false;
+  const consecutive = questions.every((q, i) => q.number === questions[0].number + i);
+  if (consecutive && questions[0].number >= 1 && questions[0].number <= 25) return false;
+
+  const offsets = questions.map((q, i) => q.number - i).filter(n => n >= 1 && n <= 5);
+  let start = 3;
+  if (offsets.length) {
+    const counts = {};
+    offsets.forEach(n => counts[n] = (counts[n] || 0) + 1);
+    start = +Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+  }
+  questions.forEach((q, i) => { q.number = start + i; q.id = q.number; });
+  return true;
 }
 
 function parseQuestions(lines) {
@@ -796,11 +872,15 @@ function parseQuestions(lines) {
 
     if (!current) continue;
     if (target === 'option' && current.options.length) {
+      // გაგრძელება მხოლოდ მაშინ, თუ პასუხი წინადადებას არ ამთავრებს —
+      // თორემ ბოლო პასუხს ფაილის ბოლოს დარჩენილი ტექსტი მიეწებება
       const last = current.options[current.options.length - 1];
+      if (endsSentence(last.text)) { target = null; continue; }
       last.text = appendText(last.text, s);
-    } else if (!current.options.length) {
+    } else if (target === 'text' && !current.options.length) {
       // კითხვის ტექსტი ორ სტრიქონზეც შეიძლება იყოს — სანამ პასუხები
       // არ დაიწყო, ყველაფერი კითხვის ტექსტია
+      if (endsSentence(current.text)) { target = null; continue; }
       current.text = appendText(current.text, s);
     }
   }
@@ -842,6 +922,7 @@ function buildTest(raw, filename) {
   const verse = columns > 1 || isVerse(pageLines);
   const sections = buildSections(pageLines, verse);
   const questions = parseQuestions(split.questionLines);
+  const renumbered = renumber(questions);
 
   const fn = parseFilename(filename);
   let author = header.author;
@@ -888,6 +969,10 @@ function buildTest(raw, filename) {
   };
 
   test.warnings = checkTest(test, columns);
+  if (renumbered && questions.length) {
+    test.warnings.push('კითხვების ნომრები დაზიანებული იყო — თავიდან დაინომრა '
+      + questions[0].number + '-დან ' + questions[questions.length - 1].number + '-მდე');
+  }
   return test;
 }
 
