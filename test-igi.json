@@ -2,7 +2,7 @@
   "id": "igi",
   "order": 999,
   "title": "ტექსტი II",
-  "author": "",
+  "author": "ჯემალ ქარჩხაძე",
   "work": "იგი",
   "source": "მოთხრობაში „იგი“ ჯემალ ქარჩხაძე გვიამბობს",
   "sourceFile": "გააზრება, 151 (ჯემალ ქარჩხაძე, იგი).pdf",
@@ -95,7 +95,7 @@
           "text": "სიკვდილს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 4,
@@ -120,7 +120,7 @@
           "text": "იგი ბედისწერას ემორჩილება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 5,
@@ -145,7 +145,7 @@
           "text": "დაღამდება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 6,
@@ -170,7 +170,7 @@
           "text": "აღშფოთება და ზიზღი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 7,
@@ -195,7 +195,7 @@
           "text": "გულგრილი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 8,
@@ -220,7 +220,7 @@
           "text": "შედარება."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 9,
@@ -245,7 +245,7 @@
           "text": "იგის თანამოძმეები პრიმიტიულად აზროვნებენ."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 10,
@@ -270,7 +270,7 @@
           "text": "იგი ზუს გაუჩინარებით შეშფოთებულია."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ა"
     },
     {
       "id": 11,
@@ -295,7 +295,7 @@
           "text": "ნის უბრალოდ აინტერესებს, სად წავა იგი."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "ბ"
     },
     {
       "id": 12,
@@ -320,7 +320,7 @@
           "text": "იგი ფიქრობს ხვალინდელ განსაცდელზე და სიტყვებს მნიშვნელობას არ ანიჭებს."
         }
       ],
-      "correctAnswer": ""
+      "correctAnswer": "გ"
     },
     {
       "id": 13,
